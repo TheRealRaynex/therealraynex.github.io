@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seymur Həsənli | Cybersecurity Specialist</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #050b0f;
+            --bg-secondary: #09141b;
+            --card: rgba(12, 27, 35, 0.85);
+            --primary: #00ff9d;
+            --secondary: #00bfff;
+            --text: #e6f1f5;
+            --muted: #91a4ad;
+            --border: rgba(0, 255, 157, 0.18);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Background */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(5, 11, 15, 0.93),
+                    rgba(5, 11, 15, 0.97)
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 80px,
+                    rgba(0, 255, 157, 0.025) 81px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 80px,
+                    rgba(0, 191, 255, 0.02) 81px
+                );
+
+            z-index: -2;
+        }
+
+        /* Navigation */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(5, 11, 15, 0.8);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Sections */
+
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            font-size: 34px;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* Hero */
+
+        #home {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+
+            padding-top: 120px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+
+            color: var(--primary);
+
+            border: 1px solid var(--border);
+
+            padding: 8px 15px;
+            border-radius: 30px;
+
+            font-size: 13px;
+
+            margin-bottom: 25px;
+
+            background: rgba(0, 255, 157, 0.05);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(42px, 7vw, 80px);
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+        }
+
+        .hero-content h2 {
+            color: var(--secondary);
+            font-size: 20px;
+            font-weight: 400;
+
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            color: var(--muted);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #00140b;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Terminal */
+
+        .terminal {
+            width: 450px;
+            max-width: 100%;
+
+            background: #071117;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 0 40px rgba(0, 255, 157, 0.08),
+                0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal-header {
+            background: #0d1c24;
+
+            padding: 12px 15px;
+
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .terminal-title {
+            margin-left: 8px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .terminal-body {
+            padding: 25px;
+
+            font-family: "Courier New", monospace;
+
+            font-size: 14px;
+
+            min-height: 300px;
+        }
+
+        .terminal-body p {
+            margin-bottom: 12px;
+        }
+
+        .command {
+            color: var(--primary);
+        }
+
+        .output {
+            color: #9ab5c0;
+            padding-left: 10px;
+        }
+
+        .cursor {
+            display: inline-block;
+
+            width: 8px;
+            height: 17px;
+
+            background: var(--primary);
+
+            animation: blink 1s infinite;
+
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 157, 0.5);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .info-list strong {
+            color: var(--primary);
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card);
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+            border: 1px solid var(--border);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            color: var(--text);
+        }
+
+        .skill-percent {
+            color: var(--primary);
+        }
+
+        .progress {
+            height: 7px;
+            background: #13242d;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary)
+            );
+
+            border-radius: 10px;
+
+            transition: width 1.5s ease;
+        }
+
+        /* Timeline */
+
+        .timeline {
+            position: relative;
+
+            border-left: 2px solid var(--border);
+
+            margin-left: 15px;
+        }
+
+        .timeline-item {
+            position: relative;
+
+            margin-left: 35px;
+
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            left: -46px;
+            top: 5px;
+
+            width: 18px;
+            height: 18px;
+
+            border-radius: 50%;
+
+            background: var(--bg);
+            border: 3px solid var(--primary);
+
+            box-shadow: 0 0 15px rgba(0,255,157,0.5);
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .timeline-item ul {
+            color: var(--muted);
+            padding-left: 20px;
+        }
+
+        /* Knowledge tags */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 9px 14px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            color: var(--primary);
+
+            background: rgba(0,255,157,0.05);
+
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: #00140b;
+            transform: translateY(-3px);
+        }
+
+        /* Education */
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .education-card {
+            background: var(--card);
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--primary);
+        }
+
+        .education-year {
+            color: var(--primary);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .education-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .education-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* Certificates */
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .certificate {
+            text-align: center;
+
+            background: var(--card);
+
+            padding: 30px 20px;
+
+            border-radius: 15px;
+
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .certificate:hover {
+            transform: translateY(-6px);
+            border-color: var(--secondary);
+        }
+
+        .certificate-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .certificate h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .certificate p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Contact */
+
+        .contact-box {
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background: linear-gradient(
+                135deg,
+                rgba(0,255,157,0.07),
+                rgba(0,191,255,0.05)
+            );
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+        }
+
+        .contact-box h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        /* Scroll top */
+
+        #scrollTop {
+            position: fixed;
+
+            bottom: 25px;
+            right: 25px;
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: var(--primary);
+
+            color: #00140b;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            display: none;
+
+            box-shadow: 0 0 20px rgba(0,255,157,0.3);
+
+            z-index: 1000;
+        }
+
+        /* Animations */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 950px) {
+
+            #home {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-grid,
+            .certificate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .terminal {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+            SEYMUR<span>.SEC</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Ana səhifə</a></li>
+            <li><a href="#about">Haqqımda</a></li>
+            <li><a href="#skills">Bacarıqlar</a></li>
+            <li><a href="#experience">Təcrübə</a></li>
+            <li><a href="#education">Təhsil</a></li>
+            <li><a href="#contact">Əlaqə</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Hero -->
+
+    <section id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                ● AVAILABLE FOR CYBERSECURITY OPPORTUNITIES
+            </div>
+
+            <h1>
+                Salam, mən<br>
+                <span>Seymur Həsənli</span>
+            </h1>
+
+            <h2>
+                Cybersecurity Specialist
+            </h2>
+
+            <p>
+                Şəbəkə təhlükəsizliyi, Penetration Testing,
+                Active Directory Security və Blue Team/SOC
+                istiqamətlərində bilik və praktiki təcrübəyə sahib
+                kibertəhlükəsizlik mütəxəssisiyəm.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#skills" class="btn btn-primary">
+                    Bacarıqlarıma bax →
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Mənimlə əlaqə
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Terminal -->
+
+        <div class="terminal">
+
+            <div class="terminal-header">
+
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+
+                <div class="terminal-title">
+                    seymur@cybersecurity:~
+                </div>
+
+            </div>
+
+            <div class="terminal-body">
+
+                <p class="command">
+                    $ whoami
+                </p>
+
+                <p class="output">
+                    Seymur Həsənli
+                </p>
+
+                <p class="command">
+                    $ cat role.txt
+                </p>
+
+                <p class="output">
+                    Cybersecurity Specialist
+                </p>
+
+                <p class="command">
+                    $ cat focus.txt
+                </p>
+
+                <p class="output">
+                    Networking<br>
+                    Penetration Testing<br>
+                    Active Directory Security<br>
+                    Blue Team / SOC
+                </p>
+
+                <p class="command">
+                    $ status
+                </p>
+
+                <p class="output">
+                    Learning. Testing. Securing.
+                </p>
+
+                <span class="cursor"></span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+
+    <section id="about" class="reveal">
+
+        <h2 class="section-title">
+            <span>01.</span> Haqqımda
+        </h2>
+
+        <div class="about-grid">
+
+            <div class="card">
+
+                <h3 style="margin-bottom: 20px;">
+                    Cybersecurity Journey
+                </h3>
+
+                <p style="color: var(--muted);">
+                    İnformasiya təhlükəsizliyi, şəbəkə təhlükəsizliyi,
+                    web təhlükəsizliyi və sistemlərin qorunması
+                    istiqamətində davamlı olaraq bilik və praktiki
+                    təcrübəmi inkişaf etdirirəm.
+                </p>
+
+                <br>
+
+                <p style="color: var(--muted);">
+                    Red Team və Blue Team istiqamətlərində işləyərək
+                    həm hücum ssenarilərini, həm də təhlükələrin
+                    monitorinqi, log analizi və insidentlərə
+                    reaksiya proseslərini öyrənirəm.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <ul class="info-list">
+
+                    <li>
+                        <strong>Ad:</strong>
+                        Seymur Həsənli
+                    </li>
+
+                    <li>
+                        <strong>Rol:</strong>
+                        Cybersecurity Specialist
+                    </li>
+
+                    <li>
+                        <strong>E-poçt:</strong>
+                        seymurhasanli14@gmail.com
+                    </li>
+
+                    <li>
+                        <strong>Dil:</strong>
+                        Azərbaycan, Türk, İngilis
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Skills -->
+
+    <section id="skills" class="reveal">
+
+        <h2 class="section-title">
+            <span>02.</span> Texniki Bacarıqlar
+        </h2>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <div class="skill-header">
+                    <span class="skill-name">
+                        Networking & Security
+                    </span>
+
+                    <span class="skill-percent">
+                        85%
+                    </span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" data-width="85%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-header">
+                    <span class="skill-name">
+                        Penetration Testing
+                    </span>
+
+                    <span class="skill-percent">
+                        80%
+                    </span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" data-width="80%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-header">
+                    <span class="skill-name">
+                        Web Security
+                    </span>
+
+                    <span class="skill-percent">
+                        80%
+                    </span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" data-width="80%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-header">
+                    <span class="skill-name">
+                        Active Directory Security
+                    </span>
+
+                    <span class="skill-percent">
+                        75%
+                    </span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" data-width="75%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-header">
+                    <span class="skill-name">
+                        Linux & Windows
+                    </span>
+
+                    <span class="skill-percent">
+                        85%
+                    </span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" data-width="85%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-header">
+                    <span class="skill-name">
+                        Blue Team / SOC
+                    </span>
+
+                    <span class="skill-percent">
+                        75%
+                    </span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" data-width="75%"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Technologies -->
+
+    <section class="reveal">
+
+        <h2 class="section-title">
+            <span>03.</span> Tools & Technologies
+        </h2>
+
+        <div class="tags">
+
+            <div class="tag">Kali Linux</div>
+            <div class="tag">Ubuntu</div>
+            <div class="tag">Windows</div>
+            <div class="tag">Wireshark</div>
+            <div class="tag">Nmap</div>
+            <div class="tag">Burp Suite</div>
+            <div class="tag">Metasploit</div>
+            <div class="tag">LinPEAS</div>
+            <div class="tag">WinPEAS</div>
+            <div class="tag">Ligolo-ng</div>
+            <div class="tag">Kerbrute</div>
+            <div class="tag">Impacket</div>
+            <div class="tag">BloodHound</div>
+            <div class="tag">Wazuh</div>
+            <div class="tag">Splunk</div>
+            <div class="tag">Bitdefender GravityZone</div>
+            <div class="tag">Shuffle SOAR</div>
+            <div class="tag">Palo Alto PAN-OS</div>
+            <div class="tag">Docker</div>
+            <div class="tag">VMware</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Experience -->
+
+    <section id="experience" class="reveal">
+
+        <h2 class="section-title">
+            <span>04.</span> İş Təcrübəsi
+        </h2>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    MAY 2023 — İYUL 2023
+                </div>
+
+                <h3>
+                    Texniki dəstək üzrə təcrübəçi
+                </h3>
+
+                <div class="timeline-company">
+                    AzEduNet (MİQ layihəsi)
+                </div>
+
+                <ul>
+                    <li>
+                        İmtahan kompüterlərinin quraşdırılması və
+                        şəbəkənin hazırlanması.
+                    </li>
+
+                    <li>
+                        Proqram təminatının yüklənməsi və test edilməsi.
+                    </li>
+
+                    <li>
+                        Texniki problemlərin operativ aradan qaldırılması.
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    İYUL 2022 — MART 2023
+                </div>
+
+                <h3>
+                    Kompüter operatoru
+                </h3>
+
+                <div class="timeline-company">
+                    AID Consulting
+                </div>
+
+                <ul>
+                    <li>
+                        Excel və Word ilə sənədlərin hazırlanması.
+                    </li>
+
+                    <li>
+                        Kompüter texniki problemlərinin aradan qaldırılması.
+                    </li>
+
+                    <li>
+                        Zənglərin və rəsmi e-poçt yazışmalarının idarə olunması.
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Education -->
+
+    <section id="education" class="reveal">
+
+        <h2 class="section-title">
+            <span>05.</span> Təhsil
+        </h2>
+
+
+        <div class="education-grid">
+
+            <div class="education-card">
+
+                <div class="education-year">
+                    2025 — 2026
+                </div>
+
+                <h3>
+                    Kibertəhlükəsizlik
+                </h3>
+
+                <p>
+                    Codelandia IT School and Software Center
+                </p>
+
+                <br>
+
+                <p>
+                    Red Team, Blue Team, SOC, təhlükəsizlik
+                    qiymətləndirməsi, log analizi və
+                    insidentlərə reaksiya istiqamətində təlim.
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <div class="education-year">
+                    2023
+                </div>
+
+                <h3>
+                    Big Data
+                </h3>
+
+                <p>
+                    CodeForFuture Təqaüd Proqramı
+                </p>
+
+                <br>
+
+                <p>
+                    VMware, Linux, Docker,
+                    Oracle Database, SQL,
+                    Power BI və Excel.
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <div class="education-year">
+                    2020 — 2024
+                </div>
+
+                <h3>
+                    Kompüter Mühəndisliyi
+                </h3>
+
+                <p>
+                    Azərbaycan Dövlət Neft və Sənaye Universiteti
+                </p>
+
+                <br>
+
+                <p>
+                    C++, Python, kompüter şəbəkələri,
+                    MySQL, Windows, Linux,
+                    web və cloud texnologiyaları.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Certificates -->
+
+    <section class="reveal">
+
+        <h2 class="section-title">
+            <span>06.</span> Sertifikatlar
+        </h2>
+
+
+        <div class="certificate-grid">
+
+            <div class="certificate">
+
+                <div class="certificate-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Cisco NetAcad Ethical Hacker
+                </h3>
+
+                <p>
+                    Cisco NetAcad
+                </p>
+
+            </div>
+
+
+            <div class="certificate">
+
+                <div class="certificate-icon">
+                    🐧
+                </div>
+
+                <h3>
+                    Cisco NetAcad Linux Essentials
+                </h3>
+
+                <p>
+                    Cisco NetAcad
+                </p>
+
+            </div>
+
+
+            <div class="certificate">
+
+                <div class="certificate-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Big Data
+                </h3>
+
+                <p>
+                    İsrail-Azərbaycan Təlim Mərkəzi
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+
+    <section id="contact" class="reveal">
+
+        <div class="contact-box">
+
+            <h2>
+                Let's Secure Something Together.
+            </h2>
+
+            <p>
+                Kibertəhlükəsizlik və texnologiya ilə bağlı
+                əməkdaşlıq və iş imkanları üçün mənimlə əlaqə saxlaya bilərsiniz.
+            </p>
+
+
+            <div class="contact-links">
+
+                <a
+                    href="mailto:seymurhasanli14@gmail.com"
+                    class="btn btn-primary"
+                >
+                    ✉ E-poçt
+                </a>
+
+
+                <a
+                    href="https://linkedin.com/in/seymurhasanli"
+                    target="_blank"
+                    class="btn btn-outline"
+                >
+                    LinkedIn →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        © 2026 Seymur Həsənli
+
+        <br><br>
+
+        <span style="color: #00ff9d;">
+            // Learning. Testing. Securing.
+        </span>
+
+    </footer>
+
+
+    <!-- Scroll Button -->
+
+    <button id="scrollTop">
+        ↑
+    </button>
+
+
+    <script>
+
+        /* Scroll reveal */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        function revealOnScroll() {
+
+            revealElements.forEach(element => {
+
+                const windowHeight =
+                    window.innerHeight;
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            revealOnScroll
+        );
+
+        revealOnScroll();
+
+
+        /* Skill animation */
+
+        const skillBars =
+            document.querySelectorAll(".progress-bar");
+
+
+        const skillObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            const bar =
+                                entry.target;
+
+                            bar.style.width =
+                                bar.dataset.width;
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.5
+                }
+            );
+
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+
+
+        /* Scroll top */
+
+        const scrollTopButton =
+            document.getElementById("scrollTop");
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (window.scrollY > 500) {
+
+                    scrollTopButton.style.display =
+                        "block";
+
+                } else {
+
+                    scrollTopButton.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        scrollTopButton.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* Dynamic terminal status */
+
+        const terminalOutput =
+            document.querySelectorAll(".output");
+
+
+        console.log(
+            "Welcome to Seymur Həsənli's Cybersecurity Portfolio"
+        );
+
+    </script>
+
+</body>
+</html>
