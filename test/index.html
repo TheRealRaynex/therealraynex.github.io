@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Seymur Həsənli | Cybersecurity Portfolio</title>
+
+<style>
+
+/* =========================
+   ROOT & RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #05080b;
+    --bg2: #091218;
+    --card: rgba(10, 22, 29, 0.85);
+    --card-hover: rgba(15, 32, 40, 0.95);
+
+    --primary: #00ff9d;
+    --secondary: #00bfff;
+    --danger: #ff4d6d;
+
+    --text: #eaf7f1;
+    --muted: #91a3a9;
+
+    --border: rgba(0, 255, 157, 0.18);
+
+    --shadow: 0 0 35px rgba(0, 255, 157, 0.08);
+}
+
+body.light {
+    --bg: #edf5f2;
+    --bg2: #ffffff;
+    --card: rgba(255, 255, 255, 0.9);
+    --card-hover: #ffffff;
+
+    --text: #101a1f;
+    --muted: #53646b;
+
+    --border: rgba(0, 130, 80, 0.18);
+
+    --shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background 0.4s, color 0.4s;
+}
+
+/* =========================
+   CYBER BACKGROUND
+========================= */
+
+.grid-bg {
+    position: fixed;
+    inset: 0;
+
+    z-index: -3;
+
+    background-image:
+        linear-gradient(
+            rgba(0,255,157,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0,255,157,.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+}
+
+.cursor-glow {
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,255,157,.10),
+            transparent 70%
+        );
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: -2;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    padding: 18px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5, 8, 11, .78);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+body.light nav {
+    background: rgba(255,255,255,.8);
+}
+
+.logo {
+    color: var(--primary);
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    font-size: 20px;
+}
+
+.logo span {
+    color: var(--text);
+}
+
+.nav-links {
+    display: flex;
+
+    list-style: none;
+
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.theme-toggle {
+    border: 1px solid var(--border);
+
+    background: transparent;
+
+    color: var(--primary);
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+.menu-btn {
+    display: none;
+
+    background: none;
+
+    border: none;
+
+    color: var(--primary);
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section {
+    padding: 100px 10%;
+}
+
+.section-title {
+    margin-bottom: 50px;
+
+    font-size: 35px;
+}
+
+.section-title span {
+    color: var(--primary);
+}
+
+.card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(0,255,157,.5);
+
+    background: var(--card-hover);
+}
+
+/* =========================
+   HERO
+========================= */
+
+#home {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding-top: 100px;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.status {
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    padding: 8px 15px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    color: var(--primary);
+
+    border: 1px solid var(--border);
+
+    background:
+        rgba(0,255,157,.05);
+}
+
+.status-dot {
+    display: inline-block;
+
+    width: 8px;
+    height: 8px;
+
+    background: var(--primary);
+
+    border-radius: 50%;
+
+    margin-right: 7px;
+
+    box-shadow:
+        0 0 12px var(--primary);
+}
+
+.hero-content h1 {
+    font-size:
+        clamp(45px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    margin-bottom: 18px;
+}
+
+.hero-content h1 span {
+    color: var(--primary);
+
+    text-shadow:
+        0 0 25px rgba(0,255,157,.35);
+}
+
+.hero-role {
+    color: var(--secondary);
+
+    font-size: 20px;
+
+    margin-bottom: 25px;
+}
+
+.hero-content p {
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 22px;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--primary);
+
+    color: #00130a;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 30px rgba(0,255,157,.5);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+
+    color: var(--text);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+
+    color: var(--primary);
+}
+
+/* =========================
+   TERMINAL
+========================= */
+
+.terminal {
+    width: 480px;
+
+    max-width: 100%;
+
+    background: #050b0f;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 0 50px rgba(0,255,157,.08);
+}
+
+.terminal-header {
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 18px;
+
+    background: #0b171d;
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+}
+
+.red {
+    background: #ff5f56;
+}
+
+.yellow {
+    background: #ffbd2e;
+}
+
+.green {
+    background: #27c93f;
+}
+
+.terminal-title {
+    margin-left: 8px;
+
+    font-family: monospace;
+
+    color: #84979e;
+
+    font-size: 12px;
+}
+
+.terminal-body {
+    padding: 22px;
+
+    height: 400px;
+
+    overflow-y: auto;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    color: #c7d5d9;
+}
+
+.output-line {
+    margin-bottom: 8px;
+
+    white-space: pre-line;
+
+    line-height: 1.6;
+}
+
+.command-line {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.prompt {
+    color: var(--primary);
+}
+
+#terminalInput {
+    flex: 1;
+
+    background: transparent;
+
+    border: none;
+
+    outline: none;
+
+    color: white;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+}
+
+.terminal-help {
+    color: #72858c;
+
+    margin-bottom: 15px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.3fr 1fr;
+
+    gap: 25px;
+}
+
+.about-text {
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+.info-list {
+    list-style: none;
+}
+
+.info-list li {
+    padding: 14px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
+}
+
+.info-list strong {
+    color: var(--primary);
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 22px;
+
+    border-radius: 12px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+}
+
+.skill-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.percent {
+    color: var(--primary);
+}
+
+.progress {
+    height: 7px;
+
+    background: #15242b;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+
+    width: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    transition:
+        width 1.5s ease;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.project-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        var(--primary);
+}
+
+.project-number {
+    color: var(--primary);
+
+    font-family: monospace;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+}
+
+.project-card h3 {
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+.project-tools {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.project-tools span {
+    padding: 6px 10px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+
+    color: var(--primary);
+
+    background:
+        rgba(0,255,157,.06);
+
+    border:
+        1px solid var(--border);
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.tag {
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    color: var(--primary);
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(0,255,157,.04);
+
+    transition: .3s;
+}
+
+.tag:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        var(--primary);
+
+    color:
+        #00140b;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+    border-left:
+        2px solid var(--border);
+
+    margin-left: 15px;
+}
+
+.timeline-item {
+    position: relative;
+
+    margin-left: 35px;
+
+    margin-bottom: 40px;
+}
+
+.timeline-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: -46px;
+
+    top: 5px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    border:
+        3px solid var(--primary);
+
+    background:
+        var(--bg);
+}
+
+.timeline-date {
+    color: var(--primary);
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+.timeline-company {
+    color: var(--secondary);
+
+    margin: 8px 0 15px;
+}
+
+.timeline-item ul {
+    padding-left: 20px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education-grid,
+.certificate-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.education-card,
+.certificate {
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    transition: .3s;
+}
+
+.education-card:hover,
+.certificate:hover {
+    transform:
+        translateY(-6px);
+
+    border-color:
+        var(--primary);
+}
+
+.year {
+    color: var(--primary);
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+.education-card p,
+.certificate p {
+    color: var(--muted);
+
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.certificate {
+    text-align: center;
+}
+
+.certificate-icon {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-box {
+    text-align: center;
+
+    padding: 70px 20px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,255,157,.06),
+            rgba(0,191,255,.05)
+        );
+}
+
+.contact-box h2 {
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.contact-box p {
+    color: var(--muted);
+
+    margin-bottom: 25px;
+}
+
+.contact-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    border-top:
+        1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+/* =========================
+   SCROLL TOP
+========================= */
+
+#scrollTop {
+    position: fixed;
+
+    bottom: 25px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    color: #00140b;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: none;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 0 25px rgba(0,255,157,.4);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 1000px) {
+
+    #home {
+        flex-direction: column;
+
+        justify-content: center;
+    }
+
+    .terminal {
+        width: 100%;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .education-grid,
+    .certificate-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 700px) {
+
+    nav {
+        padding: 15px 6%;
+    }
+
+    .nav-links {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        background: var(--bg);
+
+        flex-direction: column;
+
+        padding: 20px;
+
+        display: none;
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    section {
+        padding: 80px 6%;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 50px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="grid-bg"></div>
+<div class="cursor-glow"></div>
+
+<!-- NAV -->
+
+<nav>
+
+    <div class="logo">
+        SEYMUR<span>.SEC</span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li><a href="#home">Ana səhifə</a></li>
+        <li><a href="#about">Haqqımda</a></li>
+        <li><a href="#skills">Bacarıqlar</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Təcrübə</a></li>
+        <li><a href="#contact">Əlaqə</a></li>
+
+    </ul>
+
+    <div class="nav-right">
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            title="Theme dəyiş"
+        >
+            ☀
+        </button>
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section id="home">
+
+    <div class="hero-content">
+
+        <div class="status">
+            <span class="status-dot"></span>
+            OPEN TO OPPORTUNITIES
+        </div>
+
+        <h1>
+            Seymur<br>
+            <span>Həsənli</span>
+        </h1>
+
+        <div class="hero-role">
+            Cybersecurity Specialist
+        </div>
+
+        <p>
+            Networking, Penetration Testing,
+            Active Directory Security və
+            Blue Team / SOC istiqamətlərində
+            öz bilik və praktiki təcrübəsini
+            inkişaf etdirən cybersecurity enthusiast.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="#projects"
+                class="btn btn-primary"
+            >
+                Layihələrim →
+            </a>
+
+            <a
+                href="#contact"
+                class="btn btn-outline"
+            >
+                Əlaqə saxla
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- INTERACTIVE TERMINAL -->
+
+    <div class="terminal">
+
+        <div class="terminal-header">
+
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+
+            <div class="terminal-title">
+                seymur@cybersec:~
+            </div>
+
+        </div>
+
+        <div
+            class="terminal-body"
+            id="terminalBody"
+        >
+
+            <div class="terminal-help">
+
+                Welcome to Seymur's Cybersecurity Terminal.
+
+                Type:
+                <strong>help</strong>
+
+            </div>
+
+            <div
+                id="terminalOutput"
+            ></div>
+
+            <div class="command-line">
+
+                <span class="prompt">
+                    seymur@sec:~$
+                </span>
+
+                <input
+                    type="text"
+                    id="terminalInput"
+                    autofocus
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section
+    id="about"
+    class="reveal"
+>
+
+<h2 class="section-title">
+    <span>01.</span>
+    Haqqımda
+</h2>
+
+<div class="about-grid">
+
+    <div class="card">
+
+        <h3
+            style="margin-bottom:20px"
+        >
+            Cybersecurity Journey
+        </h3>
+
+        <p class="about-text">
+
+            Kibertəhlükəsizlik,
+            şəbəkə təhlükəsizliyi,
+            sistem təhlükəsizliyi və
+            web security istiqamətlərində
+            biliklərimi davamlı olaraq
+            inkişaf etdirirəm.
+
+        </p>
+
+        <br>
+
+        <p class="about-text">
+
+            Red Team perspektivindən
+            sistemlərin təhlükəsizlik
+            qiymətləndirilməsi və
+            Blue Team/SOC perspektivindən
+            log analizi, monitorinq və
+            insidentlərə reaksiya
+            istiqamətində praktiki
+            təcrübə qazanıram.
+
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <ul class="info-list">
+
+            <li>
+                <strong>Ad:</strong>
+                Seymur Həsənli
+            </li>
+
+            <li>
+                <strong>Rol:</strong>
+                Cybersecurity Specialist
+            </li>
+
+            <li>
+                <strong>Email:</strong>
+                seymurhasanli14@gmail.com
+            </li>
+
+            <li>
+                <strong>Languages:</strong>
+                AZ / TR / EN
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section
+    id="skills"
+    class="reveal"
+>
+
+<h2 class="section-title">
+    <span>02.</span>
+    Bacarıqlar
+</h2>
+
+<div class="skills-grid">
+
+    <div class="skill-card">
+        <div class="skill-top">
+            <span>Networking & Security</span>
+            <span class="percent">85%</span>
+        </div>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                data-width="85%"
+            ></div>
+        </div>
+    </div>
+
+
+    <div class="skill-card">
+        <div class="skill-top">
+            <span>Penetration Testing</span>
+            <span class="percent">80%</span>
+        </div>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                data-width="80%"
+            ></div>
+        </div>
+    </div>
+
+
+    <div class="skill-card">
+        <div class="skill-top">
+            <span>Web Security</span>
+            <span class="percent">80%</span>
+        </div>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                data-width="80%"
+            ></div>
+        </div>
+    </div>
+
+
+    <div class="skill-card">
+        <div class="skill-top">
+            <span>Active Directory Security</span>
+            <span class="percent">75%</span>
+        </div>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                data-width="75%"
+            ></div>
+        </div>
+    </div>
+
+
+    <div class="skill-card">
+        <div class="skill-top">
+            <span>Linux & Windows</span>
+            <span class="percent">85%</span>
+        </div>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                data-width="85%"
+            ></div>
+        </div>
+    </div>
+
+
+    <div class="skill-card">
+        <div class="skill-top">
+            <span>Blue Team / SOC</span>
+            <span class="percent">75%</span>
+        </div>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                data-width="75%"
+            ></div>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section
+    id="projects"
+    class="reveal"
+>
+
+<h2 class="section-title">
+    <span>03.</span>
+    Security Projects
+</h2>
+
+<div class="projects-grid">
+
+
+    <div class="project-card">
+
+        <div class="project-number">
+            PROJECT_01
+        </div>
+
+        <h3>
+            Active Directory Security Lab
+        </h3>
+
+        <p>
+            Active Directory mühitində
+            enumeration, privilege escalation,
+            Kerberos və NTLM əsaslı
+            hücum ssenarilərinin öyrənilməsi
+            üçün praktik lab mühiti.
+        </p>
+
+        <div class="project-tools">
+            <span>GOAD</span>
+            <span>BloodHound</span>
+            <span>Impacket</span>
+            <span>Kerbrute</span>
+            <span>WinPEAS</span>
+        </div>
+
+    </div>
+
+
+    <div class="project-card">
+
+        <div class="project-number">
+            PROJECT_02
+        </div>
+
+        <h3>
+            Wazuh SIEM Monitoring Lab
+        </h3>
+
+        <p>
+            Windows və Linux sistemlərindən
+            təhlükəsizlik loglarının toplanması,
+            monitorinqi və hadisələrin
+            analizi üçün Wazuh əsaslı
+            SIEM laboratoriya mühiti.
+        </p>
+
+        <div class="project-tools">
+            <span>Wazuh</span>
+            <span>Linux</span>
+            <span>Windows Logs</span>
+            <span>SIEM</span>
+        </div>
+
+    </div>
+
+
+    <div class="project-card">
+
+        <div class="project-number">
+            PROJECT_03
+        </div>
+
+        <h3>
+            Splunk Security Monitoring
+        </h3>
+
+        <p>
+            Windows Event Logs üzərində
+            təhlükəsizlik hadisələrinin
+            axtarışı və analizinə yönəlmiş
+            Splunk laboratoriya işi.
+        </p>
+
+        <div class="project-tools">
+            <span>Splunk</span>
+            <span>SPL</span>
+            <span>EventCode 4625</span>
+            <span>Log Analysis</span>
+        </div>
+
+    </div>
+
+
+    <div class="project-card">
+
+        <div class="project-number">
+            PROJECT_04
+        </div>
+
+        <h3>
+            Web Application Security Lab
+        </h3>
+
+        <p>
+            Web tətbiqlərində OWASP Top 10
+            zəifliklərinin öyrənilməsi və
+            təhlükəsizlik testlərinin
+            aparılması.
+        </p>
+
+        <div class="project-tools">
+            <span>Burp Suite</span>
+            <span>OWASP</span>
+            <span>Nmap</span>
+            <span>SQLi</span>
+            <span>XSS</span>
+        </div>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+<!-- TOOLS -->
+
+<section class="reveal">
+
+<h2 class="section-title">
+    <span>04.</span>
+    Arsenal
+</h2>
+
+<div class="tags">
+
+    <div class="tag">Kali Linux</div>
+    <div class="tag">Ubuntu</div>
+    <div class="tag">Windows</div>
+    <div class="tag">Wireshark</div>
+    <div class="tag">Nmap</div>
+    <div class="tag">Burp Suite</div>
+    <div class="tag">Metasploit</div>
+    <div class="tag">LinPEAS</div>
+    <div class="tag">WinPEAS</div>
+    <div class="tag">Ligolo-ng</div>
+    <div class="tag">Kerbrute</div>
+    <div class="tag">Impacket</div>
+    <div class="tag">BloodHound</div>
+    <div class="tag">Wazuh</div>
+    <div class="tag">Splunk</div>
+    <div class="tag">Shuffle SOAR</div>
+    <div class="tag">Palo Alto PAN-OS</div>
+    <div class="tag">Docker</div>
+    <div class="tag">VMware</div>
+
+</div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section
+    id="experience"
+    class="reveal"
+>
+
+<h2 class="section-title">
+    <span>05.</span>
+    İş Təcrübəsi
+</h2>
+
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+<div class="timeline-date">
+2023 MAY — 2023 İYUL
+</div>
+
+<h3>
+Texniki dəstək üzrə təcrübəçi
+</h3>
+
+<div class="timeline-company">
+AzEduNet
+</div>
+
+<ul>
+
+<li>
+Kompüterlərin quraşdırılması
+və şəbəkənin hazırlanması.
+</li>
+
+<li>
+Proqram təminatlarının
+quraşdırılması və test edilməsi.
+</li>
+
+<li>
+Texniki problemlərin
+operativ həll olunması.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-date">
+2022 İYUL — 2023 MART
+</div>
+
+<h3>
+Kompüter operatoru
+</h3>
+
+<div class="timeline-company">
+AID Consulting
+</div>
+
+<ul>
+
+<li>
+Excel və Word sənədlərinin
+hazırlanması.
+</li>
+
+<li>
+Texniki problemlərin
+aradan qaldırılması.
+</li>
+
+<li>
+Rəsmi yazışmaların və
+zənglərin idarə olunması.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section class="reveal">
+
+<h2 class="section-title">
+<span>06.</span>
+Təhsil
+</h2>
+
+<div class="education-grid">
+
+
+<div class="education-card">
+
+<div class="year">
+2025 — 2026
+</div>
+
+<h3>
+Kibertəhlükəsizlik
+</h3>
+
+<p>
+Codelandia IT School
+</p>
+
+</div>
+
+
+<div class="education-card">
+
+<div class="year">
+2023
+</div>
+
+<h3>
+Big Data
+</h3>
+
+<p>
+İsrail-Azərbaycan
+Təlim Mərkəzi
+</p>
+
+</div>
+
+
+<div class="education-card">
+
+<div class="year">
+2020 — 2024
+</div>
+
+<h3>
+Kompüter Mühəndisliyi
+</h3>
+
+<p>
+Azərbaycan Dövlət Neft
+və Sənaye Universiteti
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- CERTIFICATES -->
+
+<section class="reveal">
+
+<h2 class="section-title">
+<span>07.</span>
+Sertifikatlar
+</h2>
+
+<div class="certificate-grid">
+
+
+<div class="certificate">
+
+<div class="certificate-icon">
+🛡️
+</div>
+
+<h3>
+Cisco Ethical Hacker
+</h3>
+
+<p>
+Cisco NetAcad
+</p>
+
+</div>
+
+
+<div class="certificate">
+
+<div class="certificate-icon">
+🐧
+</div>
+
+<h3>
+Linux Essentials
+</h3>
+
+<p>
+Cisco NetAcad
+</p>
+
+</div>
+
+
+<div class="certificate">
+
+<div class="certificate-icon">
+📊
+</div>
+
+<h3>
+Big Data
+</h3>
+
+<p>
+İsrail-Azərbaycan
+Təlim Mərkəzi
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section
+id="contact"
+class="reveal"
+>
+
+<div class="contact-box">
+
+<h2>
+Let's Secure Something Together.
+</h2>
+
+<p>
+Cybersecurity və
+Information Security
+mövzularında əməkdaşlıq
+və iş imkanları üçün
+əlaqə saxlaya bilərsiniz.
+</p>
+
+<div class="contact-links">
+
+<a
+href="mailto:seymurhasanli14@gmail.com"
+class="btn btn-primary"
+>
+✉ Email
+</a>
+
+<a
+href="https://linkedin.com/in/seymurhasanli"
+target="_blank"
+class="btn btn-outline"
+>
+LinkedIn →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Seymur Həsənli
+
+<br><br>
+
+<span style="color:var(--primary)">
+// Learn. Attack. Defend. Repeat.
+</span>
+
+</footer>
+
+
+<button id="scrollTop">
+↑
+</button>
+
+
+<script>
+
+/* =========================
+   CURSOR GLOW
+========================= */
+
+const glow =
+    document.querySelector(
+        ".cursor-glow"
+    );
+
+document.addEventListener(
+    "mousemove",
+    e => {
+
+        glow.style.left =
+            e.clientX + "px";
+
+        glow.style.top =
+            e.clientY + "px";
+
+    }
+);
+
+
+/* =========================
+   THEME
+========================= */
+
+const themeToggle =
+    document.getElementById(
+        "themeToggle"
+    );
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        document.body.classList.toggle(
+            "light"
+        );
+
+        themeToggle.textContent =
+            document.body.classList.contains(
+                "light"
+            )
+            ? "🌙"
+            : "☀";
+
+    }
+);
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn =
+    document.getElementById(
+        "menuBtn"
+    );
+
+const navLinks =
+    document.getElementById(
+        "navLinks"
+    );
+
+menuBtn.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle(
+            "active"
+        );
+
+    }
+);
+
+
+/* =========================
+   TERMINAL
+========================= */
+
+const input =
+    document.getElementById(
+        "terminalInput"
+    );
+
+const output =
+    document.getElementById(
+        "terminalOutput"
+    );
+
+const terminal =
+    document.getElementById(
+        "terminalBody"
+    );
+
+let history = [];
+let historyIndex = -1;
+
+
+const commands = {
+
+help: `
+Available commands:
+
+help
+whoami
+skills
+projects
+contact
+education
+experience
+clear
+`,
+
+whoami: `
+Seymur Həsənli
+
+Role:
+Cybersecurity Specialist
+
+Focus:
+Networking
+Penetration Testing
+Active Directory
+Blue Team / SOC
+`,
+
+skills: `
+Networking & Security
+Penetration Testing
+Web Security
+Active Directory Security
+Linux / Windows
+SIEM / SOC
+`,
+
+projects: `
+PROJECT_01
+Active Directory Security Lab
+
+PROJECT_02
+Wazuh SIEM Monitoring
+
+PROJECT_03
+Splunk Security Monitoring
+
+PROJECT_04
+Web Application Security
+`,
+
+contact: `
+Email:
+seymurhasanli14@gmail.com
+
+LinkedIn:
+linkedin.com/in/seymurhasanli
+`,
+
+education: `
+Cybersecurity
+Codelandia IT School
+
+Big Data
+Israel-Azerbaijan Training Center
+
+Computer Engineering
+ADNSU
+`,
+
+experience: `
+Technical Support Intern
+AzEduNet
+
+Computer Operator
+AID Consulting
+`
+
+};
+
+
+input.addEventListener(
+    "keydown",
+    e => {
+
+        if (
+            e.key === "Enter"
+        ) {
+
+            const command =
+                input.value
+                .trim()
+                .toLowerCase();
+
+
+            if (!command)
+                return;
+
+
+            history.push(
+                command
+            );
+
+            historyIndex =
+                history.length;
+
+
+            const commandElement =
+                document.createElement(
+                    "div"
+                );
+
+            commandElement.className =
+                "output-line";
+
+            commandElement.innerHTML =
+                `<span class="prompt">
+                seymur@sec:~$
+                </span>
+                ${command}`;
+
+            output.appendChild(
+                commandElement
+            );
+
+
+            if (
+                command === "clear"
+            ) {
+
+                output.innerHTML =
+                    "";
+
+            }
+
+            else if (
+                commands[command]
+            ) {
+
+                const result =
+                    document.createElement(
+                        "div"
+                    );
+
+                result.className =
+                    "output-line";
+
+                result.style.color =
+                    "#91a3a9";
+
+                result.textContent =
+                    commands[command];
+
+                output.appendChild(
+                    result
+                );
+
+            }
+
+            else {
+
+                const error =
+                    document.createElement(
+                        "div"
+                    );
+
+                error.className =
+                    "output-line";
+
+                error.style.color =
+                    "#ff4d6d";
+
+                error.textContent =
+                    `command not found:
+                    ${command}
+
+                    Type 'help'
+                    to see available commands.`;
+
+                output.appendChild(
+                    error
+                );
+
+            }
+
+
+            input.value =
+                "";
+
+            terminal.scrollTop =
+                terminal.scrollHeight;
+
+        }
+
+
+        /* HISTORY */
+
+        if (
+            e.key === "ArrowUp"
+        ) {
+
+            if (
+                historyIndex > 0
+            ) {
+
+                historyIndex--;
+
+                input.value =
+                    history[
+                        historyIndex
+                    ];
+
+            }
+
+        }
+
+
+        if (
+            e.key === "ArrowDown"
+        ) {
+
+            if (
+                historyIndex <
+                history.length - 1
+            ) {
+
+                historyIndex++;
+
+                input.value =
+                    history[
+                        historyIndex
+                    ];
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================
+   REVEAL
+========================= */
+
+const reveals =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+function reveal() {
+
+    reveals.forEach(
+        element => {
+
+            const top =
+                element
+                .getBoundingClientRect()
+                .top;
+
+            if (
+                top <
+                window.innerHeight - 100
+            ) {
+
+                element.classList.add(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+window.addEventListener(
+    "scroll",
+    reveal
+);
+
+reveal();
+
+
+/* =========================
+   SKILL ANIMATION
+========================= */
+
+const bars =
+    document.querySelectorAll(
+        ".progress-bar"
+    );
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.style.width =
+                            entry.target.dataset.width;
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: .5
+        }
+    );
+
+bars.forEach(
+    bar =>
+        observer.observe(bar)
+);
+
+
+/* =========================
+   SCROLL TOP
+========================= */
+
+const scrollTop =
+    document.getElementById(
+        "scrollTop"
+    );
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        scrollTop.style.display =
+            window.scrollY > 500
+            ? "block"
+            : "none";
+
+    }
+);
+
+scrollTop.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* TERMINAL AUTO FOCUS */
+
+document.addEventListener(
+    "click",
+    () => {
+
+        input.focus();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
